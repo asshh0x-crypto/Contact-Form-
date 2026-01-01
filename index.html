@@ -9,45 +9,44 @@
 
 <body>
 
-    <div class="form-container">
-        <h2>Create Account</h2>
+    <form id="registerForm" name="register" method="POST" data-netlify="true" netlify-honeypot="bot-field">
 
-        <form id="registerForm" name="register" method="POST" data-netlify="true">
-            <input type="hidden" name="form-name" value="register">
+        <input type="hidden" name="form-name" value="register">
+        <input type="hidden" name="bot-field">
 
-            <div class="input-group">
-                <input type="text" id="fname" placeholder="First Name">
-                <small class="error"></small>
-            </div>
+        <div class="input-group">
+            <input type="text" name="fname" id="fname" placeholder="First Name">
+            <small class="error"></small>
+        </div>
 
-            <div class="input-group">
-                <input type="text" id="lname" placeholder="Last Name">
-                <small class="error"></small>
-            </div>
+        <div class="input-group">
+            <input type="text" name="lname" id="lname" placeholder="Last Name">
+            <small class="error"></small>
+        </div>
 
-            <div class="input-group">
-                <input type="email" id="email" placeholder="Email">
-                <small class="error"></small>
-            </div>
+        <div class="input-group">
+            <input type="email" name="email" id="email" placeholder="Email">
+            <small class="error"></small>
+        </div>
 
-            <div class="input-group">
-                <input type="text" id="contact" placeholder="Contact Number">
-                <small class="error"></small>
-            </div>
+        <div class="input-group">
+            <input type="text" name="contact" id="contact" placeholder="Contact Number">
+            <small class="error"></small>
+        </div>
 
-            <div class="input-group">
-                <input type="password" id="password" placeholder="Password">
-                <small class="error"></small>
-            </div>
+        <div class="input-group">
+            <input type="password" name="password" id="password" placeholder="Password">
+            <small class="error"></small>
+        </div>
 
-            <div class="input-group">
-                <input type="password" id="confirmPassword" placeholder="Confirm Password">
-                <small class="error"></small>
-            </div>
+        <div class="input-group">
+            <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password">
+            <small class="error"></small>
+        </div>
 
-            <button type="submit">Create Account</button>
-        </form>
-    </div>
+        <button type="submit">Create Account</button>
+    </form>
+
 
     <div id="successMessage" style="display:none; text-align:center; margin-top:20px; color:green;">
         ✅ Form submitted successfully!
