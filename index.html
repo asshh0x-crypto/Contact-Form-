@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>contact form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="form-container">
+  <h2>Create Account</h2>
+
+  <form id="registerForm" name="register" method="POST" data-netlify="true">
+    <input type="hidden" name="form-name" value="register">
+
+    <div class="input-group">
+      <input type="text" id="fname" placeholder="First Name">
+      <small class="error"></small>
+    </div>
+
+    <div class="input-group">
+      <input type="text" id="lname" placeholder="Last Name">
+      <small class="error"></small>
+    </div>
+
+    <div class="input-group">
+      <input type="email" id="email" placeholder="Email">
+      <small class="error"></small>
+    </div>
+
+    <div class="input-group">
+      <input type="text" id="contact" placeholder="Contact Number">
+      <small class="error"></small>
+    </div>
+
+    <div class="input-group">
+      <input type="password" id="password" placeholder="Password">
+      <small class="error"></small>
+    </div>
+
+    <div class="input-group">
+      <input type="password" id="confirmPassword" placeholder="Confirm Password">
+      <small class="error"></small>
+    </div>
+
+    <button type="submit">Create Account</button>
+  </form>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
