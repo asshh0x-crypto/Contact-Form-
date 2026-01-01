@@ -12,43 +12,47 @@ document.getElementById("registerForm").addEventListener("submit", function (e) 
 
   document.querySelectorAll(".error").forEach(e => e.innerText = "");
 
-  if (fname.value.trim() === "") {
-    showError(fname, "First name is required");
+  if (!fname.value.trim()) {
+    showError(fname, "First name required");
     isValid = false;
   }
 
-  if (lname.value.trim() === "") {
-    showError(lname, "Last name is required");
+  if (!lname.value.trim()) {
+    showError(lname, "Last name required");
     isValid = false;
   }
 
-  if (email.value.trim() === "") {
-    showError(email, "Email is required");
+  if (!email.value.trim()) {
+    showError(email, "Email required");
     isValid = false;
   }
 
   if (!/^\d{10}$/.test(contact.value)) {
-    if (isNaN(contact.value)) {
-      showError(contact, "Only numbers are allowed");
-    } else {
-      showError(contact, "Contact must be exactly 10 digits");
-    }
+    showError(contact, "Enter valid 10 digit number");
     isValid = false;
   }
 
   if (password.value.length < 6) {
-    showError(password, "Password must be at least 6 characters");
+    showError(password, "Minimum 6 characters");
     isValid = false;
   }
 
   if (password.value !== confirmPassword.value) {
-    showError(confirmPassword, "Password doesn't match");
+    showError(confirmPassword, "Passwords do not match");
     isValid = false;
   }
 
   if (isValid) {
-    alert("Form submitted successfully!");
-    document.getElementById("registerForm").submit();
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(new FormData(this)).toString()
+    })
+    .then(() => {
+      document.getElementById("registerForm").reset();
+      document.getElementById("successMessage").style.display = "block";
+    })
+    .catch(() => alert("Form submission failed"));
   }
 });
 
